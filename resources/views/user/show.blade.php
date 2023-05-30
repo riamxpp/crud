@@ -15,18 +15,14 @@
             <th scope="col">#</th>
             <th scope="col">First</th>
             <th scope="col">Last</th>
-            <th scope="col">Botão</th>
             </tr>
         </thead>
         <tbody>
-          @foreach($users as $user)
             <tr>
               <th scope="row">{{$user->id}}</th>
               <td>{{$user->name}}</td>
               <td>{{$user->email}}</td>
-              <td><a type="button" href="{{route('user.show', $user->id)}}" class="btn btn-success">Ver</a></td>
             </tr>
-          @endforeach
         </tbody>
         </table>
     </main>

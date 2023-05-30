@@ -37,9 +37,17 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        // $user = User::find($id);
+        // $user = User::where('id', $id)->get(); // Pega o usuario onde id dele é igual o $id 
+        // $user = User::where('id', $id)->first(); // Funciona igual ao find
+        // dd($user);
+        $user = User::find($id);
+
+        return view('user.show', [
+            'user' => $user
+        ]);
     }
 
     /**
