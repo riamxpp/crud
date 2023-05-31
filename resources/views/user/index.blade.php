@@ -15,7 +15,8 @@
             <th scope="col">#</th>
             <th scope="col">First</th>
             <th scope="col">Last</th>
-            <th scope="col">Botão</th>
+            <th scope="col">Ver</th>
+            <th scope="col">Editar</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +26,7 @@
               <td>{{$user->name}}</td>
               <td>{{$user->email}}</td>
               <td><a type="button" href="{{route('user.show', $user->id)}}" class="btn btn-success">Ver</a></td>
+              <td><a type="button" href="{{route('user.edit', $user->id)}}" class="btn btn-warning">Editar</a></td>
             </tr>
           @endforeach
         </tbody>

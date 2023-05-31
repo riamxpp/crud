@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/users', [HomeController::class, 'index']);
-Route::get('/users/{user}', [HomeController::class, 'show'])->name("user.show");
+Route::get('/users', [UsersController::class, 'index']);
+Route::get('/user/{id}', [UsersController::class, 'show'])->name("user.show");
+Route::get('/user/edit/{id}', [UsersController::class, 'edit'])->name("user.edit");
+Route::put('/user/update/{id}', [UsersController::class, 'update'])->name("user.update");

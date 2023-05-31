@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class UsersController extends Controller
 {
     
     public function index()
@@ -18,25 +18,19 @@ class HomeController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
+    
     public function show($id)
     {
         // $user = User::find($id);
@@ -50,12 +44,14 @@ class HomeController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(string $id)
     {
-        //
+        $user = User::find($id);
+
+        return view('user.edit', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -63,7 +59,17 @@ class HomeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        // dd($request->except(['_token', '_method']));
+        $data = $request->only(['nome', 'email']);
+
+        $user = User::find($id);
+        $user->name = $data["nome"];
+        $user->email = $data["email"];
+        
+        $user->save();
+
+        return redirect()->back();
     }
 
     /**
