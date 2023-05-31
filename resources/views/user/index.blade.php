@@ -17,6 +17,7 @@
             <th scope="col">Last</th>
             <th scope="col">Ver</th>
             <th scope="col">Editar</th>
+            <th scope="col">Deletar</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,13 @@
               <td>{{$user->email}}</td>
               <td><a type="button" href="{{route('user.show', $user->id)}}" class="btn btn-success">Ver</a></td>
               <td><a type="button" href="{{route('user.edit', $user->id)}}" class="btn btn-warning">Editar</a></td>
+              <td>
+                <form action="{{route('user.destroy', $user->id)}}" method="post">
+                  @method('delete')
+                  @csrf
+                  <button type="submit" class="btn btn-danger">Deletar</button>
+                </form>  
+              </td>
             </tr>
           @endforeach
         </tbody>

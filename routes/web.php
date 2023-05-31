@@ -18,3 +18,4 @@ Route::get('/users', [UsersController::class, 'index']);
 Route::get('/user/{id}', [UsersController::class, 'show'])->name("user.show");
 Route::get('/user/edit/{id}', [UsersController::class, 'edit'])->name("user.edit");
 Route::put('/user/update/{id}', [UsersController::class, 'update'])->name("user.update");
+Route::delete('/user/dele te/{id}', [UsersController::class, 'destroy'])->name("user.destroy");
