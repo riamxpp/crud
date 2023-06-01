@@ -21,13 +21,17 @@ class UsersController extends Controller
     
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     
     public function store(Request $request)
     {
-        //
+        $data = $request->only(['name', 'email']);
+        $data['password'] = bcrypt(rand(12345678, 87654321));
+
+        User::create($data);
+        return redirect()->route('user.index');  
     }
 
     
@@ -43,7 +47,6 @@ class UsersController extends Controller
             'user' => $user
         ]);
     }
-
     
     public function edit(string $id)
     {
@@ -53,10 +56,7 @@ class UsersController extends Controller
             'user' => $user
         ]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
+    
     public function update(Request $request, string $id)
     {
 
@@ -72,9 +72,6 @@ class UsersController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $user = User::find($id);

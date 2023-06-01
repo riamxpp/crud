@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/users', [UsersController::class, 'index']);
-Route::get('/user/{id}', [UsersController::class, 'show'])->name("user.show");
-Route::get('/user/edit/{id}', [UsersController::class, 'edit'])->name("user.edit");
-Route::put('/user/update/{id}', [UsersController::class, 'update'])->name("user.update");
-Route::delete('/user/dele te/{id}', [UsersController::class, 'destroy'])->name("user.destroy");
+Route::get('/users/add', [UsersController::class, 'create'])->name('user.create');
+Route::post('/users/add', [UsersController::class, 'store'])->name('user.store');
+Route::get('/users', [UsersController::class, 'index'])->name('user.index');
+Route::get('/user/{id}', [UsersController::class, 'show'])->name('user.show');
+Route::get('/user/edit/{id}', [UsersController::class, 'edit'])->name('user.edit');
+Route::put('/user/update/{id}', [UsersController::class, 'update'])->name('user.update');
+Route::delete('/user/delete/{id}', [UsersController::class, 'destroy'])->name('user.destroy');

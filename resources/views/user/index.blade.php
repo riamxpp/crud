@@ -9,6 +9,7 @@
   <body>
     <main class="container">
         <h1>index</h1>
+        <a type="button" href="{{route('user.create')}}" class="btn btn-primary">Adicionar Usuário</a>
         <table class="table">
         <thead>
             <tr>
